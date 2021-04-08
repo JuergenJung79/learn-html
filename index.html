@@ -3,11 +3,10 @@
 		<title>Seitentitel</title>
 		<script>
 			let counter = 0;
+			let btn_text = 'bitte klicken';
 			
 			window.addEventListener("load", function() {
 				//let inhalt = document.getElementsByTagName('p')[0].innerHTML = 'Absatz durch JavaScript geändert';
-				document.getElementsByTagName('h1')[0].style.color = 'orange';
-				document.getElementsByTagName('h1')[0].style.backgroundColor = 'black';
 				
 				let einzufuegendesObjekt = document.createElement("a");
 				einzufuegendesObjekt.href = "http://www.html-seminar.de";
@@ -28,11 +27,15 @@
 				schaltflaeche1.addEventListener("click", function() {
 				
 					if (counter == 0) {
-						document.getElementById('btn1').innerHTML = 'Absatz durch JavaScript geändert';
+						document.getElementById('btn1').innerHTML = 'ich wurde geklickt';
+						document.getElementsByTagName('h1')[0].style.color = 'orange';
+						document.getElementsByTagName('h1')[0].style.backgroundColor = 'black';
 						counter = 1;
 					}
 					else {
-						document.getElementById('btn1').innerHTML = 'Erster Absatz mit Text';
+						document.getElementById('btn1').innerHTML = btn_text;
+						document.getElementsByTagName('h1')[0].style.color = 'black';
+						document.getElementsByTagName('h1')[0].style.backgroundColor = 'white';
 						counter = 0;					
 					}
 				
