@@ -3,15 +3,30 @@
 		<title>Seitentitel</title>
 		<script>
 			window.addEventListener("load", function() {
-				//let absatz1 = document.getElementById('bereich1');
-				console.log(document.getElementsByTagName("title")[0]);
+				//let inhalt = document.getElementsByTagName('p')[0].innerHTML = 'Absatz durch JavaScript geändert';
+				document.getElementsByTagName('h1')[0].style.color = 'orange';
+				document.getElementsByTagName('h1')[0].style.backgroundColor = 'black';
+				
+				let einzufuegendesObjekt = document.createElement("a");
+				einzufuegendesObjekt.href = "http://www.html-seminar.de";
+				einzufuegendesObjekt.innerHTML = "Tutorial für HTML, CSS und JavaScript";
+				einzufuegendesObjekt.style.backgroundColor = "#FFFF00";
+				
+				document.body.appendChild(einzufuegendesObjekt);
+				
+				var neuesScript = document.createElement("script");
+				neuesScript.type = "text/javascript";
+				neuesScript.src = "https://apis.google.com/js/plusone.js";
+				neuesScript.innerHTML = "{lang: 'de'}";
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.appendChild(neuesScript, s);
+				
 			}, false );
 		</script>
 	</head>
 	<body>
-		<h1>Überschrift 1</h1>
-		<p>Erster Absatz mit Text</p>
-		<p>Zwieter Absatz mit Text</p>
-		<a href="https://www.javascript-kurs.de/">Text des Links</a>
+		<h1>JavaScript Kurs für Einsteiger</h1>
+		<p>JavaScript lernen einfach gemacht … </p>
+
 	</body>
 </html>
