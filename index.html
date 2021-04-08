@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Beispiel JavaScript automatisch Kopfbereich verkleinern</title>
+		<title>Beispiel Menüzeile oben fixieren</title>
 		<script>
 			window.addEventListener("load", function() {
-				let kopfelement = document.getElementsByTagName("header")[0];
+				let steuerungselement = document.getElementById("steuerung");
+				let abstandvonoben = steuerungselement.offsetTop;
 
 				function scrollueberwachung() {
-					let abstandvonoben     = window.pageYOffset;
-					document.getElementById('ylage').innerHTML = abstandvonoben;
-					if (abstandvonoben > 100) {
-						kopfelement.style.height = "30px";	
+					if (window.pageXOffset !== undefined) { // IE8 und früher machen Probleme
+						var aktuelleYposition = window.pageYOffset;
+					} else { // IE9 and earlier
+						var aktuelleYposition = document.documentElement.scrollTop;
+					}
+
+					if (aktuelleYposition >= abstandvonoben) {
+						steuerungselement.classList.add("festkleben");
 					}
 					else {
-						kopfelement.style.height = "120px";				
+						steuerungselement.classList.remove("festkleben");
 					}
+					document.getElementById('ylage').innerHTML = abstandvonoben + " / " + aktuelleYposition;
 				}
-				
+								
 				window.addEventListener("scroll", scrollueberwachung);
 			} );
 		</script>
@@ -27,23 +33,36 @@
 			}
 			header {
 				height: 120px;
-				position: fixed;
-				width: 100%;
-				transition: all 0.4s;
 				background-color: orange;
+			}
+			nav {
+				height: 30px;
+				background-color: limegreen;
+				line-height: 30px;
+				font-weight: bold;
 			}
 			article {
 				height: 2500px;
-				padding-top: 320px;
-				background-color: limegreen;
+				background-color: lightgrey;
+			}
+			.festkleben {
+				position: fixed;
+				top: 0;
+				width: 100%
+				opacity: 0.7;
+			}
+			.festkleben + article {
+				padding-top: 30px;
 			}
 		</style>
 	</head>
 	<body>
 		<header id="kopfbereich">
 			Kopfbereich 
-			<span id="ylage">Positionsangabe</span>
 		</header>
+		<nav id="steuerung">
+			Navigation <span id="ylage">Positionsangabe</span>
+		</nav>
 		<article>
 			Inhalt
 		</article>
