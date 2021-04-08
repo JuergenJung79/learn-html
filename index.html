@@ -11,8 +11,7 @@
 				einzufuegendesObjekt.href = "http://www.html-seminar.de";
 				einzufuegendesObjekt.innerHTML = "Tutorial für HTML, CSS und JavaScript";
 				einzufuegendesObjekt.style.backgroundColor = "#FFFF00";
-				
-				document.body.appendChild(einzufuegendesObjekt);
+				//document.body.appendChild(einzufuegendesObjekt);
 				
 				var neuesScript = document.createElement("script");
 				neuesScript.type = "text/javascript";
@@ -21,12 +20,22 @@
 				var s = document.getElementsByTagName('script')[0];
 				s.parentNode.appendChild(neuesScript, s);
 				
-			}, false );
+				let schaltflaeche1 = document.getElementById("btn1");
+				//let schaltflaeche1 = document.querySelector("h1");
+				console.log(schaltflaeche1);
+				schaltflaeche1.addEventListener("click", function() {
+					alert("angeklickt");
+				
+					}, false);
+				
+				}, false );
 		</script>
 	</head>
 	<body>
-		<h1>JavaScript Kurs für Einsteiger</h1>
-		<p>JavaScript lernen einfach gemacht … </p>
-
+		<h1 class="wichtig">Überschrift 1</h1>
+		<p class="wichtig">Erster Absatz mit Text</p>
+		<p>Zweiter Absatz mit Text</p>	
+		<a href="https://www.javascript-kurs.de/">Text des Links</a>
+		<p><button id="btn1">bitte klicken</button>
 	</body>
 </html>
