@@ -5,3 +5,44 @@ body {
 #leinwand {
     background-color: whitesmoke;
 }
+
+#punktestand {
+	font-size: 20pt;
+	background-color: yellow;
+	width: 600px;
+}
+
+#spielzeit {
+	font-size: 16pt;
+	background-color: red;
+	width: 600px;
+}
+
+#spielbereich {
+	position: relative;
+	width: 600px;
+}
+
+#spielendeanzeige {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 4px solid red;
+	margin: 40px 50px;
+	width: 500px;
+	height: 400px;
+	background-color: hsla(0, 50%, 50%, 0.7);
+}
+
+#gameover {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;	
+	border: 4px solid red;
+	margin: 10%;
+	background-color: hsla(0, 50%, 50%, 0.7);
+	width: 80%;
+	height: 70%;
+}
