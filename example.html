@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Seitentitel</title>
+		<script>
+			let counter = 0;
+			let btn_text = 'bitte klicken';
+			
+			window.addEventListener("load", function() {
+				//let inhalt = document.getElementsByTagName('p')[0].innerHTML = 'Absatz durch JavaScript geändert';
+				
+				let einzufuegendesObjekt = document.createElement("a");
+				einzufuegendesObjekt.href = "http://www.html-seminar.de";
+				einzufuegendesObjekt.innerHTML = "Tutorial für HTML, CSS und JavaScript";
+				einzufuegendesObjekt.style.backgroundColor = "#FFFF00";
+				//document.body.appendChild(einzufuegendesObjekt);
+				
+				var neuesScript = document.createElement("script");
+				neuesScript.type = "text/javascript";
+				neuesScript.src = "https://apis.google.com/js/plusone.js";
+				neuesScript.innerHTML = "{lang: 'de'}";
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.appendChild(neuesScript, s);
+				
+				let schaltflaeche1 = document.getElementById("btn1");
+				//let schaltflaeche1 = document.querySelector("h1");
+				console.log(schaltflaeche1);
+				schaltflaeche1.addEventListener("click", function() {
+				
+					if (counter == 0) {
+						document.getElementById('btn1').innerHTML = 'ich wurde geklickt';
+						document.getElementsByTagName('h1')[0].style.color = 'orange';
+						document.getElementsByTagName('h1')[0].style.backgroundColor = 'black';
+						counter = 1;
+					}
+					else {
+						document.getElementById('btn1').innerHTML = btn_text;
+						document.getElementsByTagName('h1')[0].style.color = 'black';
+						document.getElementsByTagName('h1')[0].style.backgroundColor = 'white';
+						counter = 0;					
+					}
+				
+					}, false);
+				
+				}, false );
+		</script>
+	</head>
+	<body>
+		<h1 class="wichtig">Überschrift 1</h1>
+		<p class="wichtig">Erster Absatz mit Text</p>
+		<p>Zweiter Absatz mit Text</p>	
+		<a href="https://www.javascript-kurs.de/">Text des Links</a>
+		<p><button id="btn1">bitte klicken</button>
+	</body>
+</html>
