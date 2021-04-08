@@ -2,6 +2,8 @@
 	<head>
 		<title>Seitentitel</title>
 		<script>
+			let counter = 0;
+			
 			window.addEventListener("load", function() {
 				//let inhalt = document.getElementsByTagName('p')[0].innerHTML = 'Absatz durch JavaScript geändert';
 				document.getElementsByTagName('h1')[0].style.color = 'orange';
@@ -24,7 +26,15 @@
 				//let schaltflaeche1 = document.querySelector("h1");
 				console.log(schaltflaeche1);
 				schaltflaeche1.addEventListener("click", function() {
-					alert("angeklickt");
+				
+					if (counter == 0) {
+						document.getElementById('btn1').innerHTML = 'Absatz durch JavaScript geändert';
+						counter = 1;
+					}
+					else {
+						document.getElementById('btn1').innerHTML = 'Erster Absatz mit Text';
+						counter = 0;					
+					}
 				
 					}, false);
 				
